@@ -1,0 +1,43 @@
+<h1>Know of a pet need a home?</h1>
+<form style="border:1px solid black" (submit)='addone()'>
+    <br>
+    <p>Pet name</p>
+    <p *ngIf='dublicate' style="color: red">
+        {{dublicate}}
+    </p>
+    <p *ngIf='name' style="color: red">
+        {{name}}
+    </p>
+    <input type="text" name="name" [(ngModel)]='aut.name'>
+    <br>
+    <br>
+    <p>Pet type</p>
+    <p *ngIf='type' style="color: red">
+        {{type}}
+    </p>
+    <input type="text" name="type" [(ngModel)]='aut.type'>
+    <br>
+    <br>
+    <p>Description</p>
+    <p *ngIf='des' style="color: red">
+        {{des}}
+    </p>
+    <input type="text" name="des" [(ngModel)]='aut.des'>
+    <br>
+    <br>
+    <p>Skills(optional):</p>
+    <div style="margin-left:20px">Skill 1:
+        <input type="text" name="s1" [(ngModel)]='aut.s1'>
+        <br> Skill 2:
+        <input type="text" name="s2" [(ngModel)]='aut.s2'>
+        <br> Skill 3:
+        <input type="text" name="s3" [(ngModel)]='aut.s3'>
+    </div>
+    <br>
+    <br>
+    <button class='btn'>add pet</button>
+    <a [routerLink]="['/pets']">
+        <div class='btn'>Cancel</div>
+    </a>
+</form>
+{{aut|json}}

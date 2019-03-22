@@ -1,0 +1,17 @@
+<p><b>Details about {{pe.name}}</b></p>
+<a [routerLink]="['/pets']">
+    <div class='btn'>Home</div>
+</a>
+<p><b>Pet type: </b>{{pe.type}}</p>
+<p><b>Description: </b>{{pe.des}}</p>
+<p style="display:inline-block;"><b>Skill: </b></p>
+<div style="display:inline-block;vertical-align: top">
+    <p>{{pe.s1}}</p>
+    <p>{{pe.s2}}</p>
+    <p>{{pe.s3}}</p>
+</div>
+<p><b>Likes: </b>{{pe.like}}</p>
+
+<button *ngIf='num==0' (click)='addlike()'>Like this pet!</button>
+<button *ngIf='num==1' disabled>Like this pet!</button>
+<button (click)='deletepet()'>Adopt this pet!</button>

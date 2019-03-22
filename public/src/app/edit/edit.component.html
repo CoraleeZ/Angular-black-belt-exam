@@ -1,0 +1,52 @@
+<h1>Edit this pet</h1>
+<div *ngIf='!(err==1)'>
+
+    <form style="border:1px solid black" (submit)='editauthor()'>
+        <br>
+        <p>Pet name</p>
+        <p *ngIf='dublicate' style="color: red">
+            {{dublicate}}
+        </p>
+        <p *ngIf='name' style="color: red">
+            {{name}}
+        </p>
+        <input type="text" name="na" [(ngModel)]='ed.name'>
+        <br>
+        <br>
+        <p>Pet type</p>
+        <p *ngIf='type' style="color: red">
+            {{type}}
+        </p>
+        <input type="text" name="type" [(ngModel)]='ed.type'>
+        <br>
+        <br>
+        <p>Description</p>
+        <p *ngIf='des' style="color: red">
+            {{des}}
+        </p>
+        <input type="text" name="des" [(ngModel)]='ed.des'>
+        <br>
+        <br>
+        <p>Skills(optional):</p>
+        <div style="margin-left:20px">Skill 1:
+            <input type="text" name="s1" [(ngModel)]='ed.s1'>
+            <br> Skill 2:
+            <input type="text" name="s2" [(ngModel)]='ed.s2'>
+            <br> Skill 3:
+            <input type="text" name="s3" [(ngModel)]='ed.s3'>
+        </div>
+        <br>
+        <button class='btn'>edit pet</button>
+        <a [routerLink]="['/pets']">
+            <div class='btn'>Cancel</div>
+        </a>
+    </form>
+    {{ed|json}}
+</div>
+<div *ngIf='err==1'>
+    <a [routerLink]="['/pets/new']">Add an author</a>
+    <p>
+        "We're sorry, but we could not find the author you are looking for.
+    </p>
+    <p>ERROR:{{errmess}}</p>
+</div>
